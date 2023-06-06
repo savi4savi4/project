@@ -42,7 +42,14 @@ let students = {
         pro: [{
             name: 'Sam',
             progress: 10
-        }]
+        }],
+
+        semi: {
+            students: [{
+                name: 'Test',
+                progress: 100
+            }]
+        }
     }
 };
 
@@ -71,4 +78,32 @@ function getTotalProgressByIteration(data) {
     return total / students;
 }
 
-console.log(getTotalProgressByIteration(students))
+//  console.log(getTotalProgressByIteration(students));
+
+
+function getTotalProgressByRecursion(data) {
+    if (Array.isArray(data)) {
+        let total = 0;
+            
+            for (let i = 0; i < data.length; i++) {
+                total += data[i].progress;
+        }
+        
+        return [total, data.lenght]; 
+        } else {
+        let total = [0, 0];
+
+        for (let subData of Object.values(data)) {
+            const subDataArr = getTotalProgressByRecursion(subData);
+            total[0] += subDataArr[0];
+            total[1] += subDataArr[1];
+        } 
+
+        return total;
+    }
+}
+
+const result = getTotalProgressByRecursion(students);
+
+console.log(result[0] / result[1]);
+
