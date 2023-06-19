@@ -1,109 +1,30 @@
-// function pow(x, n) {
-//     let result = 1;
+'use strict';
 
-//     for (let i = 0; i < n; i++) {
-//         result *= x;
-//     }
+const box = document.querySelector('.box');
+const block = document.querySelector('.block');
 
-//     return result;
+console.log(block);
+
+// if (block) {
+//     console.log(block.textContent);
 // }
 
-// function pow(x, n) {
-//     if (n === 1) {
-//         return x;
-//     } else {
-//         return x * pow(x, n - 1);
-//     }
-// }
+// block?.textContent = '123';
 
-// pow(2, 1) // 2
-// pow(2, 2) // 4
-// pow(2, 3) // 8
-// pow(2, 4) // 16
+// console.log(1 + 2);
 
-let students = {
-    js: [{
-        name: 'John',
-        progress: 100
-    }, {
-        name: 'Ivan',
-        progress: 60
-    }],
-    
-    html: {
-        basic: [{
-            name: 'Peter',
-            progress: 20
-        }, {
-            name: 'Ann',
-            progress: 18
-        }],
-        
-        pro: [{
-            name: 'Sam',
-            progress: 10
-        }],
-
-        semi: {
-            students: [{
-                name: 'Test',
-                progress: 100
-            }]
-        }
-    }
-};
-
-function getTotalProgressByIteration(data) {
-    let total = 0;
-    let students = 0;
-
-    for (let course of Object.values(data)) {
-        if (Array.isArray(course)) {
-            students += course.length;
-            
-            for (let i = 0; i < course.length; i++) {
-                total += course[i].progress;
-            }
-        } else {
-            for (let subCourse of Object.values(course)) {
-                students += subCourse.length;
-
-                for (let i = 0; i < subCourse.length; i++) {
-                    total += subCourse[i].progress;
-                }
-            }
-        }
-    }
-    
-    return total / students;
-}
-
-//  console.log(getTotalProgressByIteration(students));
-
-
-function getTotalProgressByRecursion(data) {
-    if (Array.isArray(data)) {
-        let total = 0;
-            
-            for (let i = 0; i < data.length; i++) {
-                total += data[i].progress;
-        }
-        
-        return [total, data.lenght]; 
-        } else {
-        let total = [0, 0];
-
-        for (let subData of Object.values(data)) {
-            const subDataArr = getTotalProgressByRecursion(subData);
-            total[0] += subDataArr[0];
-            total[1] += subDataArr[1];
-        } 
-
-        return total;
+const userData = {
+    name: 'Ivan',
+    age: null,
+    say: function () {
+        console.log('Hello');
     }
 }
 
-const result = getTotalProgressByRecursion(students);
+userData.say();
+userData.hey?.();
+// if (userData && userData.skills && userData.skills.js) {
+//     console.log(userData.skills.js);
+// }
 
-console.log(result[0] / result[1]);
-
+  console.log(userData?.skills?.js);
