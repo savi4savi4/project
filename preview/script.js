@@ -1,13 +1,40 @@
-'use strict';
+const btns = document.querySelectorAll('button'),
+    wrapper = document.querySelector('.btn-block');
 
-// const bigint = 46456546654654621651654621313541654516516516546546546556516416n;
+// console.log(btns[0].classList.length);
+// console.log(btns[0].classList.item(1));
+// console.log(btns[1].classList.add('red'));
+// console.log(btns[0].classList.remove('blue'));
+// console.log(btns[0].classList.toggle('blue'));
 
-const sameBigint = BigInt(46456546654654621651654621313541654516516516546546546556516416);
+// if (btns[1].classList.contains('red')) {
+//     console.log('red')
+// }
 
-// console.log(Math.round(2n +++ 2));
+btns[0].addEventListener('click', () => {
+    // if (!btns[1].classList.contains('red')) {
+    //     btns[1].classList.add('red');
+    // } else {
+    //     btns[1].classList.remove('red');
+    // }
 
-let bigint = 1n;
-let number = 2;
+    btns[1].classList.toggle('red');
+});
 
-console.log(bigint + BigInt(number));
-console.log(Number(bigint) + number);
+// console.log(btns[0].className);
+
+wrapper.addEventListener('click', (event) => {
+    if (event.target && event.target.matches("button.red")) {
+        console.log('hello');
+    }
+});
+
+// btns.forEach(btn => {
+//     btn.addEventListener('click', () => {
+//         console.log('Hello');
+//     });
+// });
+
+const btn = document.createElement('button');
+btn.classList.add('red');
+wrapped.append(btn);
