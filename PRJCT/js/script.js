@@ -1,34 +1,27 @@
-const btn = document.querySelector('.btn');
-let timerId,
-    i = 0;
+'use strict';
 
-function myAnimation() {
-    const elem = document.querySelector('.box');
-    let pos = 0;
+const now = new Date('2023-08-25');  /*отсчет  идет в милисек, с 1970 года*/
+// new Date.parse('2023-08-25');  /*то же самое, что и сверху*/
 
-    const id = setInterval(frame, 10);
-    function frame() {
-        if (pos == 300) {
-            clearInterval(id);
-        } else {
-            pos++;
-            elem.style.top = pos + "px";
-            elem.style.left = pos + "px";
-        }
-    }
-    }
+console.log(now.setHours(40));
+console.log(now);
 
-btn.addEventListener('click', myAnimation);
+// console.log(now.getFullYear());  /*год*/
+// console.log(now.getMonth());  /*сентябрь = 08, смещ на 1, отсчет с 0*/
+// console.log(now.getDate());  /*от 1 до 31*/
+// console.log(now.getDay());  /*воскресенье = 0, понедельник = 1*/
+// console.log(now.getHours());  /*показвает сист время*/
+// console.log(now.getUTCHours());  /*показвает UTC*/
 
-// function logger() {
-//     if (i === 3) {
-//         clearInterval(timerId);
-//     }   
-//     console.log('text');
-//     i++;
-// }
+// console.log(now.getTimezoneOffset());  /*ввдет -180, те 3ч*/
+// console.log(now.getTime());  /*1692896167413 милисек с 1970г*/
 
-// let id = setTimeout(function log() {
-//     console.log('hello');
-//     id = setTimeout(log, 500)
-// }, 500);
+let start = new Date();
+
+for (let i = 0; i < 100000; i++) {
+    let some = i ** 3;
+}
+
+let end = new Date();
+
+alert(`Цикл отработал за ${end - start} милисекунд`);
